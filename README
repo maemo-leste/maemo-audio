@@ -1,0 +1,5 @@
+This package contains files relating to properly functioning audio on Maemo.
+
+Currently, it contains an init script for pulseaudio, and it will also set up
+the UNIX user groups for this to work. A lot more (extra module configuration,
+rules/tables, more complicate pulse configs) will follow.
