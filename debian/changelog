@@ -1,0 +1,5 @@
+maemo-audio (1.0.0) unstable; urgency=low
+
+  * Initial version, just a pulseaudio init script
+
+ -- Merlijn Wajer <merlijn@wizzup.org>  Sun, 05 Jul 2020 22:23:51 +0200

@@ -1,0 +1,16 @@
+Source: maemo-audio
+Priority: optional
+Maintainer: Merlijn Wajer <merlijn@wizzup.org>
+Build-Depends:
+ debhelper (>= 10),
+Standards-Version: 3.7.2
+Section: libs
+
+Package: maemo-audio
+Architecture: all
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ pulseaudio
+Description: Maemo Leste audio init scripts and configuration
+
