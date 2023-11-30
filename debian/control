@@ -2,7 +2,7 @@ Source: maemo-audio
 Priority: optional
 Maintainer: Merlijn Wajer <merlijn@wizzup.org>
 Build-Depends:
- debhelper (>= 10),
+ debhelper (>= 10), maemo-system-services-dev
 Standards-Version: 3.7.2
 Section: libs
 

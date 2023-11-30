@@ -1,0 +1,1 @@
+rm_conffile /etc/init.d/pulseaudio 1.0.1~

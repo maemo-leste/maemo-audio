@@ -1,3 +1,9 @@
+maemo-audio (1.0.1) unstable; urgency=low
+
+  * Do not start pulseaudio as root, use xsession script instead
+
+ -- Ivaylo Dimitrov <ivo.g.dimitrov.75@gmail.com>  Thu, 30 Nov 2023 15:42:44 +0200
+
 maemo-audio (1.0.0) unstable; urgency=low
 
   * Initial version, just a pulseaudio init script
