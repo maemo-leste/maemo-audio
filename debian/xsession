@@ -1,3 +1,5 @@
 #!/bin/sh
 
-/usr/bin/start-pulseaudio-x11
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/wireplumber &
