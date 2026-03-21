@@ -1,3 +1,9 @@
+maemo-audio (1.0.2) unstable; urgency=low
+
+  * Switch to pipewire
+
+ -- Merlijn Wajer <merlijn@wizzup.org>  Sat, 21 Mar 2026 21:34:59 +0100
+
 maemo-audio (1.0.1) unstable; urgency=low
 
   * Do not start pulseaudio as root, use xsession script instead
