@@ -11,6 +11,6 @@ Architecture: all
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
- pulseaudio
+ pulseaudio, alsa-ucm-conf
 Description: Maemo Leste audio init scripts and configuration
 
