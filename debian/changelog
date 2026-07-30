@@ -1,3 +1,9 @@
+maemo-audio (1.0.4) unstable; urgency=low
+
+  * depend on alsa-ucm-conf
+
+ -- Ivaylo Dimitrov <ivo.g.dimitrov.75@gmail.com>  Thu, 30 Jul 2026 17:34:27 +0300
+
 maemo-audio (1.0.2) unstable; urgency=low
 
   * Switch to pipewire
