@@ -10,6 +10,6 @@ Package: maemo-audio
 Architecture: all
 Depends:
  ${shlibs:Depends},
- ${misc:Depends}, alsa-ucm-conf, libspa-0.2-bluetooth
+ ${misc:Depends}, pipewire-audio, alsa-ucm-conf, libspa-0.2-bluetooth
 Description: Maemo Leste audio init scripts and configuration
 
