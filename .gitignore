@@ -1,0 +1,11 @@
+debian/.debhelper/
+debian/debhelper-build-stamp
+debian/files
+debian/*.debhelper.log
+debian/*.substvars
+debian/*.debhelper
+debian/maemo-audio/
+debian/maemo-audio-*/
+*.deb
+*.buildinfo
+*.changes

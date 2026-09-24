@@ -13,3 +13,25 @@ Depends:
  ${misc:Depends}, pipewire-audio, alsa-ucm-conf, libspa-0.2-bluetooth
 Description: Maemo Leste audio init scripts and configuration
 
+Package: maemo-audio-droid4
+Architecture: all
+Depends:
+ ${misc:Depends},
+ maemo-audio
+Description: Maemo Leste audio configuration - Motorola Droid 4
+ Volume tuning ladders for the cpcap codec as wired on the Motorola
+ Droid 4, published as wireplumber node properties for
+ maemo-statusmenu-volume.
+ .
+ There is one maemo-audio-<device> package per device and exactly one
+ should be installed, pulled in by the device image metapackage the
+ same way that metapackage already selects leste-config-<device>. The
+ image is device-specific even though the initial package install runs
+ in a container, so the metapackage choice is the device selection and
+ no runtime detection is needed.
+ .
+ Device packages must be mutually exclusive. When adding a new
+ maemo-audio-<device> package, add it to the Conflicts list of every
+ existing device package and the others to its own, so two ladders can
+ never be active at once.
+
