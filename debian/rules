@@ -1,7 +1,22 @@
 #!/usr/bin/make -f
+
+# The package stages its whole file tree under ./maemo-audio/ and installs it
+# with "maemo-audio/* /" (see debian/maemo-audio.install).  The compiled
+# pipewire module is built and staged into that same tree so the existing
+# install rule picks it up, landing in the arch-specific module directory.
+
+MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+MODDIR    := $(CURDIR)/maemo-audio/usr/lib/$(MULTIARCH)/pipewire-0.3
+
 %:
 	dh $@
 
-override_dh_install:
-	dh_install
-	dh_installxsession -u 'pre 03'
+override_dh_auto_build:
+	$(MAKE) -C module
+
+override_dh_auto_clean:
+	$(MAKE) -C module clean
+
+override_dh_auto_install:
+	install -d $(MODDIR)
+	install -m 0644 module/libpipewire-module-maemo-volume.so $(MODDIR)/

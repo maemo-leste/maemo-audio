@@ -9,3 +9,5 @@ debian/maemo-audio-*/
 *.deb
 *.buildinfo
 *.changes
+module/libpipewire-module-*.so
+maemo-audio/usr/lib/*/pipewire-0.3/
