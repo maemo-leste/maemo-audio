@@ -1,0 +1,51 @@
+Nokia queue vs maemo_hw_queue
+latency 20 ms, extra delay 5 ms, margin 10 ms, tick 1 ms
+ladder: 0=0.1 1=0.3 2=0.5 3=0.7 4=1.0;  slider rests at 5 (0.5)
+
+=== grid off ===
+  one click                        TIME   same steps, worst timing skew 9 ms
+    ours   [t+ 35ms step 4] [t+ 85ms step 2]
+    nokia  [t+ 36ms step 4] [t+ 76ms step 2]
+  click then click 5ms later       COUNT  write count 4 vs 3
+    ours   [t+ 35ms step 4] [t+ 45ms step 2] [t+ 60ms step 4] [t+110ms step 2]
+    nokia  [t+ 36ms step 2] [t+ 61ms step 4] [t+101ms step 2]
+  release before the lift lands    TIME   same steps, worst timing skew 9 ms
+    ours   [t+ 30ms step 2]
+    nokia  [t+ 21ms step 2]
+  burst of 4 clicks, 8ms apart     COUNT  write count 2 vs 4
+    ours   [t+ 33ms step 2] [t+ 65ms step 2]
+    nokia  [t+ 24ms step 2] [t+ 40ms step 2] [t+ 56ms step 2] [t+ 72ms step 2]
+  slider moved during a claim      TIME   same steps, worst timing skew 11 ms
+    ours   [t+ 35ms step 4] [t+ 85ms step 3]
+    nokia  [t+ 46ms step 4] [t+ 76ms step 3]
+  slider staircase                 COUNT  write count 2 vs 1
+    ours   [t+ 35ms step 3] [t+ 70ms step 1]
+    nokia  [t+ 61ms step 1]
+  claim quieter than the slider    MATCH  identical
+    ours  (no writes)
+    nokia (no writes)
+
+=== grid on  ===
+  one click                        TIME   same steps, worst timing skew 9 ms
+    ours   [t+ 32ms step 4] [t+ 85ms step 2]
+    nokia  [t+ 36ms step 4] [t+ 76ms step 2]
+  click then click 5ms later       COUNT  write count 4 vs 3
+    ours   [t+ 32ms step 4] [t+ 45ms step 2] [t+ 54ms step 4] [t+110ms step 2]
+    nokia  [t+ 36ms step 2] [t+ 61ms step 4] [t+101ms step 2]
+  release before the lift lands    TIME   same steps, worst timing skew 9 ms
+    ours   [t+ 30ms step 2]
+    nokia  [t+ 21ms step 2]
+  burst of 4 clicks, 8ms apart     COUNT  write count 8 vs 4
+    ours   [t+ 32ms step 4] [t+ 33ms step 2] [t+ 43ms step 4] [t+ 49ms step 2] [t+ 64ms step 4] [t+ 65ms step 2] [t+ 75ms step 4] [t+ 81ms step 2]
+    nokia  [t+ 24ms step 2] [t+ 40ms step 2] [t+ 56ms step 2] [t+ 72ms step 2]
+  slider moved during a claim      TIME   same steps, worst timing skew 14 ms
+    ours   [t+ 32ms step 4] [t+ 85ms step 3]
+    nokia  [t+ 46ms step 4] [t+ 76ms step 3]
+  slider staircase                 COUNT  write count 2 vs 1
+    ours   [t+ 32ms step 3] [t+ 70ms step 1]
+    nokia  [t+ 61ms step 1]
+  claim quieter than the slider    MATCH  identical
+    ours  (no writes)
+    nokia (no writes)
+
+totals over both modes: MATCH 2  TIME 6  STEP 0  COUNT 6

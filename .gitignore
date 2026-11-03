@@ -9,3 +9,23 @@ debian/maemo-audio-*/
 *.deb
 *.buildinfo
 *.changes
+module/libpipewire-module-*.so
+maemo-audio/usr/lib/*/pipewire-0.3/
+.backups/
+maemo-audio/usr/lib/*/spa-0.2/
+# Compiler dependency files. Narrower than it looks: a bare *.d also
+# swallows every *.conf.d directory, which is where the shipped config
+# lives, and git then refuses to add anything new in one of those.
+*.d
+!*.conf.d/
+module/*.o
+tools/
+mixer/*.o
+mixer/*.so
+
+# built test binaries
+/tests/route-write
+
+# meson out-of-tree build dirs
+builddir/
+obj-*/

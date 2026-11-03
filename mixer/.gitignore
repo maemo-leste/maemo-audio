@@ -1,0 +1,4 @@
+*.o
+*.so
+tests/test-*
+!tests/*.c

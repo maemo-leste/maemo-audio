@@ -1,7 +1,24 @@
 #!/usr/bin/make -f
-%:
-	dh $@
 
-override_dh_install:
-	dh_install
-	dh_installxsession -u 'pre 03'
+# The package stages its whole file tree under ./maemo-audio/ and installs it
+# with "maemo-audio/* /" (see debian/maemo-audio.install).  The compiled
+# artifacts are meson-installed into that same staging tree, so the one
+# install rule picks up the config and the two shared objects together, and
+# they land in the arch-specific directories meson takes from pkg-config:
+#
+#   usr/lib/<multiarch>/pipewire-0.3/libpipewire-module-maemo-mix.so
+#   usr/lib/<multiarch>/spa-0.2/maemo-flat-volume/libspa-maemo-flat-volume.so
+#
+# The mixer is an SPA plugin, so it sits under the SPA plugin tree, not the
+# pipewire module tree.  The two loaders search different directories and the
+# SPA loader strips "../", so they cannot share one installed file.
+
+%:
+	dh $@ --buildsystem=meson+ninja
+
+# The volume invariant (hw * soft == virtual, across the hardware handoff)
+# and the SIMD dispatch and ladder cache are checked by "meson test", which
+# dh_auto_test runs, so a regression fails the package build rather than
+# shipping.
+override_dh_auto_install:
+	dh_auto_install --destdir=$(CURDIR)/maemo-audio
