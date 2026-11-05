@@ -1,3 +1,21 @@
+maemo-audio (2.0.0) unstable; urgency=medium
+
+  * The slider moves the hardware: a mixer with a volume of its own, and the
+    module that maps the applet's target through the device's ladder onto the
+    ALSA control step and writes it to the announced route on the mixer's
+    deadline
+  * Absolute streams raise the control for the window and duck the software bed
+    by exactly what the raise added
+  * Sounds that carry no level of their own are matched by media name or
+    restore id, get the absolute claim, and take their level from the profile
+  * One output per audio card, each with its own queue, codec thread and deadline
+  * The mixer node answers every param it declares, which is what gets it a
+    session item
+  * Built with meson; both install directories come from pkg-config
+  * Depend on the maemo build of pipewire
+
+ -- Ivaylo Dimitrov <ivo.g.dimitrov.75@gmail.com>  Thu, 05 Nov 2026 21:36:14 +0200
+
 maemo-audio (1.0.5) unstable; urgency=low
 
   * depend on libspa-0.2-bluetooth
